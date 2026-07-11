@@ -16,3 +16,4 @@ logs/
 # IDE configurations
 .vscode/
 .idea/
+*.egg-info/
