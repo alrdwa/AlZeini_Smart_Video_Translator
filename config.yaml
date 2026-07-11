@@ -1,0 +1,22 @@
+# AlZeini Smart Video Translator - Configuration File
+
+whisper:
+  dir: "whisper.cpp"               # Subfolder where whisper.cpp is compiled
+  model: "ggml-small.bin"          # Model weight file (tiny, base, small, medium)
+
+llm:
+  correct: true                   # Toggle translation / correction
+  host: "localhost"               # Local Ollama host address
+  port: 11434                     # Local Ollama port
+  model: "gemma3:4b"              # LLM Model name (e.g. gemma3:4b or qwen2.5-coder:7b)
+  temperature: 0.1                # Translation temperature (low value preserves consistency)
+
+translation:
+  batch_size: 20                  # Subtitle blocks sent in a single context prompt
+  target_lang: "ar"               # Target language code
+
+tts:
+  provider: "edge-tts"             # Speech provider: edge-tts (neural API) or pyttsx3 (local offline)
+  voice: "ar-EG-SalmaNeural"       # Target voice name (e.g. ar-EG-SalmaNeural or ar-SA-HamedNeural)
+  mode: "voice_over"               # Dub modes: subtitles_only, voice_over (ducked original), full_dub (replaced original)
+  bg_volume: 0.20                  # Background volume duck ratio (0.20 = 20% original volume in voice_over)

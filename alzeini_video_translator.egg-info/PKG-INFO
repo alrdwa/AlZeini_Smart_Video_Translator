@@ -1,0 +1,88 @@
+Metadata-Version: 2.4
+Name: alzeini-video-translator
+Version: 0.1.0
+Summary: A modular, local-first AI Video transcription, translation, and dubbing engine
+Author-email: Mohamed AlZeini <mohamed@alzeini.com>
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: edge-tts>=6.1.0
+
+# AlZeini Smart Video Translator (v1.0 CLI Engine)
+
+> AI-Powered Local Video Transcription, AI Translation & Dubbing Engine
+
+**AlZeini Smart Video Translator** is a local-first, GPU-free video transcription, translation, and voiceover dubbing engine optimized for Linux (Ubuntu). It:
+1. Extracts audio and transcribes spoken English using an optimized C++ implementation of Whisper (`whisper.cpp`) running on CPU cores.
+2. Translates transcripts into natural Arabic using local LLMs (Gemma / Qwen) via Ollama.
+3. Synthesizes a high-quality Arabic voiceover (TTS), automatically fits speech durations to subtitle bounds, and merges the new track onto the video with background music ducking.
+
+---
+
+## 🌟 Key Features
+
+* **Real-time CPU Transcription**: Leverages `whisper.cpp` (compiled with AVX2 instruction sets) to transcribe speech locally without GPU acceleration.
+* **Context-Aware Translation**: Groups subtitle blocks into XML batches (20 lines at a time) to allow local LLMs to understand conversational flow, yielding natural Arabic translations.
+* **Smart Audio Dubbing (TTS)**: Converts Arabic subtitles into a voiceover track using premium Microsoft Neural TTS voices, automatically adjusting speech speed (`atempo` filter) to fit subtitle timings.
+* **Audio Ducking Mix**: Merges the voiceover with the original video's audio, dropping the original track volume to 15% to keep background music/atmosphere clear while keeping the voiceover crisp.
+* **WAV Extraction**: Automatically extracts mono 16kHz WAV audio tracks from videos using `ffmpeg`.
+* **SubRip Output**: Outputs standard `.srt` subtitles in English and Arabic.
+
+---
+
+## 🛠️ Requirements & Installation
+
+1. **System Dependencies**:
+   Ensure `ffmpeg` and compiler tools are installed:
+   ```bash
+   sudo apt update
+   sudo apt install -y ffmpeg cmake build-essential
+   ```
+
+2. **Project Setup**:
+   Clones, compiles `whisper.cpp` binaries, and downloads the `small` GGML Whisper model weights (~466MB):
+   ```bash
+   python3 setup_whisper.py --model small
+   ```
+
+3. **Python Libraries**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+---
+
+## 🚀 Quick Start
+
+### 1. Transcribe & Translate (English & Arabic Subtitles)
+```bash
+python3 app.py "/path/to/video.mp4"
+```
+
+### 2. Transcribe, Translate & Dub (Arabic Voiceover Video Output)
+Generate Arabic subtitles and dub them directly onto the video:
+```bash
+python3 app.py "/path/to/video.mp4" --dub
+```
+
+### 3. Specify Target Voice & Custom LLM
+```bash
+python3 app.py "/path/to/video.mp4" --dub --voice ar-SA-HamedNeural --model qwen2.5-coder:7b
+```
+
+### Command Flags:
+* `--dub`: Enables Arabic voiceover synthesis and video multiplexing.
+* `--voice`: Specify a target Edge-TTS voice (default: `ar-EG-SalmaNeural`, alternatives: `ar-SA-HamedNeural`, `ar-SA-ZariyahNeural`).
+* `--model`: Specify a custom Ollama model.
+* `--no-translate`: Transcribe only (English subtitles only).
+* `--output-dir`: Target output directory.
+
+---
+
+## ⚙️ Configuration
+
+Options can be customized in **[config.yaml](file:///home/mohamed-al-zeini/Documents/AI-Projects/AlZeini_Smart_Video_Translator/config.yaml)**.

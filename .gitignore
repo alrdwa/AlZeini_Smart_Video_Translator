@@ -1,0 +1,18 @@
+# Python compilation cache
+__pycache__/
+*.pyc
+
+# Local dependencies & third party compiled folders
+whisper.cpp/
+temp_dubbing/
+
+# Centralized Model Weight Storage (exclude large binary GGUF/GGML weights)
+models/
+
+# Output and Log Directories
+output/
+logs/
+
+# IDE configurations
+.vscode/
+.idea/

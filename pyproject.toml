@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "alzeini-video-translator"
+version = "0.1.0"
+description = "A modular, local-first AI Video transcription, translation, and dubbing engine"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [
+    { name = "Mohamed AlZeini", email = "mohamed@alzeini.com" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "pyyaml>=6.0",
+    "edge-tts>=6.1.0",
+]
+
+[project.scripts]
+azvt = "app:main"
+
+[tool.setuptools.packages.find]
+include = ["alzeini_video_translator*"]
