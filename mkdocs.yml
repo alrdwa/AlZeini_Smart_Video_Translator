@@ -1,0 +1,64 @@
+site_name: "AlZeini Smart Video Translator"
+site_url: "https://alrdwa.github.io/AlZeini_Smart_Video_Translator/"
+repo_name: "alrdwa/AlZeini_Smart_Video_Translator"
+repo_url: "https://github.com/alrdwa/AlZeini_Smart_Video_Translator"
+site_description: "Modular, local-first, offline AI Video transcription, translation, and dubbing platform."
+site_author: "Mohamed AlZeini"
+
+theme:
+  name: material
+  language: en
+  palette:
+    # Light Mode Toggle
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: light blue
+      accent: deep orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark Mode Toggle
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: deep orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.top
+    - navigation.instant
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: true
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - toc:
+      permalink: true
+
+nav:
+  - 🏠 Home: index.md
+  - 🚀 Quick Start: quickstart.md
+  - 💻 Installation: installation.md
+  - 📖 User Guide: user_guide.md
+  - ⚙️ Configuration: configuration.md
+  - 🏗 Architecture: architecture.md
+  - 📊 Benchmarks: benchmarks.md
+  - 🗺 Roadmap: roadmap.md
+  - ❓ FAQ: faq.md
+  - 🤝 Contributing: contributing.md
+  - 📜 Changelog: changelog.md
