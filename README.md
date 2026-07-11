@@ -1,3 +1,22 @@
+# 🎬 AlZeini Smart Video Translator
+
+Offline AI-powered video translator for educational content.
+
+## ✨ Features
+
+- 🎤 Whisper.cpp Speech Recognition
+- 🌍 Context-aware Translation with Ollama
+- 📚 Bilingual Subtitles
+- 🔊 Voice Over & Full Dubbing
+- 🧠 Piper Local TTS
+- 📄 Vocabulary Extraction
+- 📝 Summary Generator
+- ❓ Quiz Generator
+- 🔒 100% Offline Processing
+
+## 🚀 Installation
+
+...
 # AlZeini Smart Video Translator
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
