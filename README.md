@@ -1,3 +1,15 @@
+# AlZeini Smart Video Translator
+
+![Python](https://img.shields.io/badge/Python-3.10+-blue)
+
+![License](https://img.shields.io/badge/License-MIT-green)
+
+![Status](https://img.shields.io/badge/Status-v0.2.0--beta-orange)
+
+![Platform](https://img.shields.io/badge/Platform-Linux-success)
+
+![Offline](https://img.shields.io/badge/Offline-100%25-brightgreen)
+
 # AlZeini Smart Video Translator (v1.0 CLI Engine)
 
 > AI-Powered Local Video Transcription, AI Translation & Dubbing Platform
